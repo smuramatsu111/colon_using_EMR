@@ -33,7 +33,7 @@ checkpoints = './LSTM/single/'
 seq_len   = 21  # input sequence length
 pred_len  = 1   # prediction sequence length
 
-# 引数に応じて次元数を変更
+# 引数に応じて隠れ層の次元数を変更
 if 'num' in args.data:
     d_model = 64
 elif 'small' in args.data:
@@ -56,7 +56,8 @@ gpu = 2  # gpu
 use_multi_gpu = False
 devices = '0,1,2,3'  # device ids of multile gpus
 
-
+# 実験条件(textデータ4パターン×numデータ3パターン)
+# numデータについては大腸がんとの関連性から3段階(high, middle, low)に区分し、hだけ、h+m、h+m+lの3パターンで実験
 data_parser = {
     'fullH':  {'T': ['CEA','CA19-9'], 'M':[3929,3929], 'MS':[3929,2]}, # text: 768*5 + num: 89
     'fullM':  {'T': ['CEA','CA19-9'], 'M':[3949,3949], 'MS':[3949,2]}, # text: 768*5 + num: 109
