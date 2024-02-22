@@ -14,7 +14,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-from mylib.nn_model_regre import MyDataset_CA, MLregression, NeuralNetwork, NeuralNetwork_test, NeuralNetwork_test2
+from mylib.nn_model_regre import MyDataset_CA, MLregression, NeuralNetwork
 
 
 #プログラム実行時に入力を受取り、それに応じて入力データ(の規模や種類)を変更する
@@ -132,7 +132,6 @@ if 'num' in args.data:
 
 print("main") #デバッグ
 
-"""
 model = NeuralNetwork(
     input_dim=input_dim,
     hidden_size1=hidden1_num,
@@ -140,17 +139,6 @@ model = NeuralNetwork(
     label_num=label_num,
     device=device
     )
-
-"""
-
-
-model = NeuralNetwork_test(
-    input_dim=input_dim,
-    hidden_size1=hidden1_num,
-    label_num=label_num,
-    dropout=dropout,
-    device=device
-)
 
 model.to(device)
 
